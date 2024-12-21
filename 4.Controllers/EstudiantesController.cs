@@ -35,6 +35,7 @@ namespace MECTRONICS._4.Controllers
         {
             try
             {
+
                 if (estudiante == null)
                 {
                     return BadRequest("Debe añadir datos del estudiante.");
