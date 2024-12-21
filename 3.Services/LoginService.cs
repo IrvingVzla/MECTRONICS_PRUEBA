@@ -18,6 +18,11 @@ namespace MECTRONICS._3.Services
             _context = context;
         }
 
+        /// <summary>
+        /// Metodo que obtiene la contrasena encriptada de un estudiante por su correo.
+        /// </summary>
+        /// <param name="correo">Correo electronico del estudiante.</param>
+        /// <returns>Contrasena encriptada.</returns>
         public async Task<string> ObtenerContrasenaXCorreoAsync(string correo)
         {
             var contrasenaEncrypt = await _context.Estudiantes
@@ -28,6 +33,11 @@ namespace MECTRONICS._3.Services
             return contrasenaEncrypt;
         }
 
+        /// <summary>
+        /// Metodo que valida las credenciales de un estudiante.
+        /// </summary>
+        /// <param name="login">Objeto Login que contiene correo y contrasena.</param>
+        /// <returns>Verdadero si las credenciales son correctas, falso de lo contrario.</returns>
         public async Task<bool> ValidarCredenciales(Login login)
         {
             string contrasenaEncrypt = await ObtenerContrasenaXCorreoAsync(login.CORREO_ELECTRONICO);
@@ -41,7 +51,11 @@ namespace MECTRONICS._3.Services
             return false;
         }
 
-        // Método para encriptar la contraseña
+        /// <summary>
+        /// Metodo para encriptar la contrasena usando AES.
+        /// </summary>
+        /// <param name="contrasena">Contrasena a encriptar.</param>
+        /// <returns>Contrasena encriptada en formato Base64.</returns>
         public string EncriptarContrasena(string contrasena)
         {
             using (Aes aesAlgoritmo = Aes.Create())
@@ -63,7 +77,11 @@ namespace MECTRONICS._3.Services
             }
         }
 
-        // Método para desencriptar la contraseña
+        /// <summary>
+        /// Metodo para desencriptar la contrasena usando AES.
+        /// </summary>
+        /// <param name="contrasenaEncriptada">Contrasena encriptada en formato Base64.</param>
+        /// <returns>Contrasena desencriptada.</returns>
         private string DesencriptarContrasena(string contrasenaEncriptada)
         {
             using (Aes aesAlgoritmo = Aes.Create())
@@ -81,6 +99,12 @@ namespace MECTRONICS._3.Services
                 }
             }
         }
+
+        /// <summary>
+        /// Metodo que obtiene la informacion de un estudiante por su correo electronico.
+        /// </summary>
+        /// <param name="correo">Correo electronico del estudiante.</param>
+        /// <returns>El estudiante correspondiente.</returns>
         public async Task<Estudiante> ObtenerInfoEstudiante(string correo)
         {
             var estudiante = await _context.Estudiantes.FirstOrDefaultAsync(e => e.CORREO_ELECTRONICO == correo);
@@ -93,6 +117,13 @@ namespace MECTRONICS._3.Services
             return estudiante;
         }
 
+        /// <summary>
+        /// Metodo que actualiza la contrasena de un estudiante.
+        /// </summary>
+        /// <param name="actualizarContrasena">Objeto con la contrasena actual y la nueva.</param>
+        /// <param name="correo">Correo electronico del estudiante.</param>
+        /// <param name="userId">ID del estudiante.</param>
+        /// <returns>Task</returns>
         public async Task ActualizarContrasenaAsync(ActualizarContrasena actualizarContrasena, string correo, int userId)
         {
             if (string.IsNullOrEmpty(correo) || userId == 0)

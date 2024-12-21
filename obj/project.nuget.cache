@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BEZG5Zyx7u9TA5iUZ0FoAP39Z/GLgh659WjiMEN8ku/eWDQyiTeWM1o/XvW2IvMtik6Nqo0i2yJaf3a4ew7Y5Q==",
+  "dgSpecHash": "DXoLLTHY/Dhwh511GZ4ZUMD7B1pdCBPQE2ETM7hi4cYVBcAQ4OSLI9bb+i6JL+etB6FjF/GKIHVF0TbReKx+Lw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\MECTRONICS\\MECTRONICS.csproj",
+  "projectFilePath": "C:\\PROYECTOS\\MECTRONICS\\MECTRONICS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

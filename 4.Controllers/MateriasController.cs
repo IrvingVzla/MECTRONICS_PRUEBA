@@ -19,6 +19,10 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpGet("obtenerMaterias")]
+        /// <summary>
+        /// Metodo que obtiene la lista de todas las materias.
+        /// </summary>
+        /// <returns>Lista de materias o mensaje de error si no se encuentran.</returns>
         public async Task<ActionResult<List<VMateria>>> ObtenerEstudiantes()
         {
             var materias = await _materiaService.ObtenerMateriasAsync();

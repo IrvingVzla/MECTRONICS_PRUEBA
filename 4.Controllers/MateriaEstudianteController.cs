@@ -20,6 +20,10 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpGet("obtenerMateriasXEstudiante")]
+        /// <summary>
+        /// Metodo que obtiene las materias asignadas a un estudiante autenticado.
+        /// </summary>
+        /// <returns>Lista de materias del estudiante o mensaje de error.</returns>
         public async Task<ActionResult<List<VMateriaEstudiante>>> MateriasXEstudiante()
         {
             try
@@ -39,6 +43,11 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpPost("agregarMateriaXEstudiante")]
+        /// <summary>
+        /// Metodo que agrega una nueva materia a un estudiante.
+        /// </summary>
+        /// <param name="materiaEstudiante">Objeto que contiene los datos de la materia a agregar.</param>
+        /// <returns>Mensaje de exito si se agrega correctamente o mensaje de error si no es asi.</returns>
         public async Task<ActionResult> AgregarMateria([FromBody] MateriaEstudiante materiaEstudiante)
         {
             try
@@ -67,6 +76,11 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpDelete("quitarMateriaXEstudiante")]
+        /// <summary>
+        /// Metodo que elimina una materia de un estudiante.
+        /// </summary>
+        /// <param name="materiaEstudiante">Objeto que contiene los datos de la materia a eliminar.</param>
+        /// <returns>Mensaje de exito si se elimina correctamente o mensaje de error si no es asi.</returns>
         public async Task<ActionResult> QuitarMateria([FromBody] MateriaEstudiante materiaEstudiante)
         {
             try
@@ -95,6 +109,11 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpGet("obtenerEstudiantesXMateria")]
+        /// <summary>
+        /// Metodo que obtiene los estudiantes asignados a una materia.
+        /// </summary>
+        /// <param name="materiaId">Id de la materia para obtener los estudiantes asociados.</param>
+        /// <returns>Lista de estudiantes o mensaje de error si no se encuentra la materia.</returns>
         public async Task<ActionResult<List<VMateriaEstudiante>>> EstudiantesXMateria([FromQuery] int materiaId)
         {
             try
@@ -103,7 +122,7 @@ namespace MECTRONICS._4.Controllers
                 {
                     return BadRequest("No se enviaron parametros para la solicitud.");
                 }
-                
+
                 var estudiantesXMateria = await _materiaEstudianteService.ObtenerEstudiantesXMateriaAsync(materiaId);
 
                 return Ok(estudiantesXMateria);

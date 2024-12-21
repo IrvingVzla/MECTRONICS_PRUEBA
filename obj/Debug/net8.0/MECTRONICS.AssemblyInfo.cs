@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MECTRONICS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+507a2f54ace4cdb8b0662616bfb9498188a83d09")]
 [assembly: System.Reflection.AssemblyProductAttribute("MECTRONICS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MECTRONICS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

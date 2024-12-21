@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { apiUrl } from '../config';
 
 const PrivateRoute = ({ children }) => {
-    const [isTokenValid, setIsTokenValid] = useState(true); // Estado para manejar si el token es válido
+    const [isTokenValid, setIsTokenValid] = useState(true);
     const token = localStorage.getItem('token');
 
     useEffect(() => {

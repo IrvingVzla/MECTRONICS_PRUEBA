@@ -1,1 +1,2 @@
 C:\TFS\MECTRONICS\FrontendReact\obj\Debug\frontendreact.esproj.CoreCompileInputs.cache
+C:\PROYECTOS\MECTRONICS\FrontendReact\obj\Debug\frontendreact.esproj.CoreCompileInputs.cache

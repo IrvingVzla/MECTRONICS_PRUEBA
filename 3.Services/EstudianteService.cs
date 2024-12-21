@@ -1,8 +1,6 @@
 ﻿using MECTRONICS._1.Database;
 using MECTRONICS._2.Models;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 
 namespace MECTRONICS._3.Services
 {
@@ -17,16 +15,20 @@ namespace MECTRONICS._3.Services
             _loginService = loginService;
         }
 
+        /// <summary>
+        /// Metodo que obtiene la lista de estudiantes.
+        /// </summary>
+        /// <returns>Lista de estudiantes.</returns>
         public async Task<List<Estudiante>> ObtenerEstudiantesAsync()
         {
             return await _context.Estudiantes.ToListAsync();
         }
 
         /// <summary>
-        /// Metodo que guarda los estudiantes, encripta la contraseña antes de guardarlo.
+        /// Metodo que guarda los estudiantes, encripta la contrasena antes de guardarlo.
         /// </summary>
-        /// <param name="estudiante"></param>
-        /// <returns></returns>
+        /// <param name="estudiante">El estudiante que se va a guardar.</param>
+        /// <returns>Task</returns>
         public async Task AgregarEstudianteAsync(Estudiante estudiante)
         {
             estudiante.CONTRASENA = _loginService.EncriptarContrasena(estudiante.CONTRASENA);
@@ -34,6 +36,11 @@ namespace MECTRONICS._3.Services
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Metodo que obtiene un estudiante por su ID.
+        /// </summary>
+        /// <param name="userId">ID del estudiante.</param>
+        /// <returns>El estudiante encontrado.</returns>
         public async Task<Estudiante> ObtenerEstudianteActualXIDAsync(int userId)
         {
             return await _context.Estudiantes
@@ -41,6 +48,11 @@ namespace MECTRONICS._3.Services
             .FirstOrDefaultAsync();
         }
 
+        /// <summary>
+        /// Metodo que actualiza los datos de un estudiante.
+        /// </summary>
+        /// <param name="estudiante">Estudiante con los datos actualizados.</param>
+        /// <returns>Task</returns>
         public async Task ActualizarEstudianteAsync(Estudiante estudiante)
         {
             var estudianteDB = await ObtenerEstudianteActualXIDAsync(estudiante.ID);

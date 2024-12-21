@@ -11,7 +11,7 @@ import PrivateRoute from './components/PrivateRoute';
 const App = () => {
     return (
         <Routes>
-            {/* Rutas p�blicas */}
+            {/* Rutas publicas */}
             <Route path="/" element={<LoginForm />} />
             <Route path="/FormularioRegistro" element={<FormularioRegistro />} />
 

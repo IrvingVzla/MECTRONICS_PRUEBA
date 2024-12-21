@@ -6,7 +6,7 @@ import { apiUrl } from '../../config';
 import ModalContrasena from './ModalContrasena';
 
 const Perfil = () => {
-    const [loading, setLoading] = useState(false); // Estado de carga
+    const [loading, setLoading] = useState(false);
     const [id, setId] = useState('');
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -16,7 +16,7 @@ const Perfil = () => {
     const modalContrasenaRef = useRef(null);
 
     const obtenerEstudiante = async () => {
-        setLoading(true); // Indicador de carga
+        setLoading(true);
 
         try {
             const response = await fetch(`${apiUrl}/api/Estudiantes/obtenerEstudianteActual`, {

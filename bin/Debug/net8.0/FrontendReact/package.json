@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.20.6",
     "block-ui": "^2.70.1",
     "datatables.net": "^2.1.8",
     "datatables.net-bs5": "^2.1.8",
@@ -19,6 +20,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-loading": "^2.0.3",
+    "react-paginate": "^8.2.0",
     "react-router-dom": "^7.0.2",
     "sweetalert2": "^11.15.2"
   },

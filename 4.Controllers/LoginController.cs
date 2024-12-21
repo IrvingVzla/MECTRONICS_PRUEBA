@@ -24,6 +24,11 @@ namespace MECTRONICS._4.Controllers
         }
 
         [HttpPost("iniciarSesion")]
+        /// <summary>
+        /// Metodo que permite iniciar sesion validando las credenciales del usuario.
+        /// </summary>
+        /// <param name="login">Objeto Login que contiene el correo electronico y la contrasena.</param>
+        /// <returns>Token JWT si las credenciales son correctas o mensaje de error si no lo son.</returns>
         public async Task<IActionResult> IniciarSesion([FromBody] Login login)
         {
             try
@@ -66,11 +71,9 @@ namespace MECTRONICS._4.Controllers
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
                     return Ok(new { Token = tokenString, Nombre = estudiante.NOMBRE });
-
                 }
 
                 return Unauthorized("Las credenciales son incorrectas.");
-                
             }
             catch (Exception ex)
             {
@@ -80,6 +83,10 @@ namespace MECTRONICS._4.Controllers
 
         // Ruta que valida si el token es válido
         [HttpGet("validarToken")]
+        /// <summary>
+        /// Metodo que valida si el token proporcionado es valido y no ha expirado.
+        /// </summary>
+        /// <returns>Respuesta con estado de validez del token.</returns>
         public IActionResult ValidarToken()
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
@@ -122,6 +129,11 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpPut("actualizarContrasena")]
+        /// <summary>
+        /// Metodo que permite actualizar la contrasena de un usuario autenticado.
+        /// </summary>
+        /// <param name="actualizarContrasena">Objeto con las contrasenas actual y nueva.</param>
+        /// <returns>Mensaje de exito si se actualiza correctamente o mensaje de error si no es asi.</returns>
         public async Task<ActionResult> actualizarContrasena([FromBody] ActualizarContrasena actualizarContrasena)
         {
             try

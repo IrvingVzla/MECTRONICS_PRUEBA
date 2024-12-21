@@ -70,25 +70,21 @@ const RegistroForm = () => {
             <div className="form-container">
                 <h2 className="text-center mb-4">Formulario de Registro</h2>
                 <form onSubmit={handleSubmit}>
-                    {/* Campo de Nombre */}
                     <div className="mb-3">
                         <label htmlFor="nombre" className="form-label">Nombre</label>
                         <input type="text" className="form-control" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required placeholder="Nombres"/>
                     </div>
 
-                    {/* Campo de Apellido */}
                     <div className="mb-3">
                         <label htmlFor="apellido" className="form-label">Apellido</label>
                         <input type="text" className="form-control" id="apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} required placeholder="Apellidos"/>
                     </div>
 
-                    {/* Campo de Correo Electrónico */}
                     <div className="mb-3">
                         <label htmlFor="correo" className="form-label">Correo Electrónico</label>
                         <input type="email" className="form-control" id="correo" value={correo} onChange={(e) => setCorreo(e.target.value)} required placeholder="Correo Electrónico" />
                     </div>
 
-                    {/* Campo de Contraseña */}
                     <div className="mb-3">
                         <label htmlFor="contrasena" className="form-label">Contraseña</label>
                         <input type="password" className="form-control" id="contrasena" value={contrasena} onChange={(e) => setContrasena(e.target.value)} required placeholder="Contraseña" />
@@ -102,7 +98,6 @@ const RegistroForm = () => {
                         </div>
                     )}
 
-                    {/* Botón de Enviar */}
                     <div className="d-grid gap-2">
                         <button type="submit" className="btn btn-primary">Registrar</button>
                     </div>

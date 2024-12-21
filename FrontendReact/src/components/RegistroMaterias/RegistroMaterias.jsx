@@ -6,16 +6,16 @@ import { apiUrl } from '../../config';
 import './RegistroMaterias.css';
 
 const RegistroMaterias = () => {
-    const [materias, setMaterias] = useState([]); // Estado para almacenar las materias
+    const [materias, setMaterias] = useState([]);
     const [materiasEstudiante, setMateriasEstudiante] = useState([]); 
-    const [loading, setLoading] = useState(false); // Estado de carga
-    const [error, setError] = useState(null); // Estado de error
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const token = localStorage.getItem('token');
 
     // Función para obtener las materias
     const obtenerMaterias = async () => {
-        setLoading(true); // Indicador de carga
+        setLoading(true);
 
         try {
             const response = await fetch(`${apiUrl}/api/Materias/obtenerMaterias`, {
@@ -42,7 +42,7 @@ const RegistroMaterias = () => {
             });
 
         } finally {
-            setLoading(false); // Desactivamos el indicador de carga
+            setLoading(false);
         }
     };
 

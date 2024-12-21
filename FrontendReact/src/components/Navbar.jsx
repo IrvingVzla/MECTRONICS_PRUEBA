@@ -90,7 +90,7 @@ const Navbar = ({ children }) => { // children inserta el contenido en la pagina
                         </ul>
                     </nav>
 
-                    {/* Aquí se muestra el contenido de la página */}
+                    {/* Aqui se muestar el contenido de las paginas*/}
                     <div className="container-fluid">
                         {children}
                     </div>

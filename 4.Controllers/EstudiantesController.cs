@@ -19,6 +19,10 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpGet("obtenerEstudiantes")]
+        /// <summary>
+        /// Metodo que obtiene todos los estudiantes registrados en la base de datos.
+        /// </summary>
+        /// <returns>Lista de estudiantes si se encuentran, o un mensaje de no encontrados si no hay estudiantes.</returns>
         public async Task<ActionResult<List<Estudiante>>> ObtenerEstudiantes()
         {
             var estudiantes = await _estudianteService.ObtenerEstudiantesAsync();
@@ -31,11 +35,15 @@ namespace MECTRONICS._4.Controllers
         }
 
         [HttpPost("crearEstudiante")]
+        /// <summary>
+        /// Metodo que se encarga de crear estudiantes, realiza validaciones para que el objeto no llegue nulo y verificar que el correo no este registrado.
+        /// </summary>
+        /// <param name="estudiante">Objeto Estudiante con la informacion a registrar.</param>
+        /// <returns>Mensaje de exito si el estudiante se crea correctamente o mensaje de error en caso contrario.</returns>
         public async Task<ActionResult> CrearEstudiante([FromBody] Estudiante estudiante)
         {
             try
             {
-
                 if (estudiante == null)
                 {
                     return BadRequest("Debe añadir datos del estudiante.");
@@ -69,6 +77,10 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpGet("obtenerEstudianteActual")]
+        /// <summary>
+        /// Metodo que obtiene el estudiante actual basado en el ID del usuario autenticado.
+        /// </summary>
+        /// <returns>El estudiante actual o un mensaje de no encontrado si no existe.</returns>
         public async Task<ActionResult<Estudiante>> EstudianteActual()
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
@@ -84,13 +96,18 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpPut("actualizarEstudiante")]
+        /// <summary>
+        /// Metodo que actualiza la informacion de un estudiante.
+        /// </summary>
+        /// <param name="estudiante">Objeto Estudiante con los datos actualizados.</param>
+        /// <returns>Mensaje de exito si se actualiza correctamente o mensaje de error en caso contrario.</returns>
         public async Task<ActionResult> actualizarEstudiante([FromBody] Estudiante estudiante)
         {
             try
             {
                 if (estudiante == null)
                 {
-                    return BadRequest("No se han añadido datos del usuario..");
+                    return BadRequest("No se han añadido datos del usuario.");
                 }
 
                 await _estudianteService.ActualizarEstudianteAsync(estudiante);

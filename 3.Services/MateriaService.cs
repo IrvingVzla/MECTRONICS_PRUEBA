@@ -1,8 +1,6 @@
 ﻿using MECTRONICS._1.Database;
 using MECTRONICS._2.Models;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 
 namespace MECTRONICS._3.Services
 {
@@ -15,10 +13,14 @@ namespace MECTRONICS._3.Services
             _context = context;
         }
 
+        // Método para obtener todas las materias
+        /// <summary>
+        /// Método que obtiene una lista de todas las materias disponibles en la base de datos.
+        /// </summary>
+        /// <returns>Lista de objetos VMateria que representan las materias.</returns>
         public async Task<List<VMateria>> ObtenerMateriasAsync()
         {
             return await _context.VMaterias.ToListAsync();
         }
-
     }
 }
