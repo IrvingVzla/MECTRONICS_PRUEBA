@@ -1,0 +1,38 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    margin-top: 50px;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+/* Estilo para el overlay que bloquea la pantalla */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que el overlay se muestre por encima de todo */
+}
+
+/* Estilo para centrar el spinner */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
