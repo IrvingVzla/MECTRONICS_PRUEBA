@@ -84,6 +84,7 @@ namespace MECTRONICS._4.Controllers
 
         [Authorize]
         [HttpPut("actualizarEstudiante")]
+
         public async Task<ActionResult> actualizarEstudiante([FromBody] Estudiante estudiante)
         {
             try
